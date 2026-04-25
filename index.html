@@ -7,181 +7,178 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            /* Logodaki Meşale ve Yazı Renkleri */
-            --adp-blue: #0c1a40; /* Koyu Lacivert */
-            --adp-orange-fire: #ff6600; /* Meşale Turuncusu */
-            --adp-orange-light: #ffaa00; /* Meşale Sarısı */
-            --text-dark: #2c3e50;
-            --text-light: #ffffff;
-            --bg-gray: #f8fafc;
+            --adp-blue: #0c1a40;
+            --adp-gold: #d4af37; /* Altın Varak Rengi */
+            --adp-orange: #ff6600;
+            --white: #ffffff;
+            --bg-gradient: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background: var(--bg-gradient); color: var(--adp-blue); -webkit-font-smoothing: antialiased; }
 
-        body { background-color: var(--bg-gray); color: var(--text-dark); -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-bottom: 70px; /* Sabit WhatsApp butonu için */ }
-
-        /* Mobil Header (Kurumsal) */
+        /* KURUMSAL HEADER */
         header {
-            padding: 15px;
-            background-color: var(--text-light);
-            border-bottom: 4px solid var(--adp-blue);
+            background: var(--white);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--adp-blue);
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
+        .header-logo { height: 60px; max-width: 90%; object-fit: contain; }
 
-        .header-logo { width: auto; height: 45px; object-fit: contain; }
-
-        /* Hero (Profil ve Güven) Bölümü */
+        /* PRESTİJ HERO ALANI */
         .hero {
-            padding: 50px 20px;
+            padding: 40px 20px;
             text-align: center;
-            background: linear-gradient(135deg, var(--text-light) 0%, #e6f0fa 100%);
-            border-radius: 0 0 30px 30px;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Hafif doku */
         }
 
-        .profile-container {
+        /* Altın Çerçeveli Profil Fotoğrafı (Responsive) */
+        .profile-wrapper {
             position: relative;
             display: inline-block;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-
         .profile-img {
-            width: 170px;
-            height: 170px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 6px solid var(--text-light);
+            border: 6px solid var(--white);
+            box-shadow: 0 0 0 4px var(--adp-gold), 0 15px 35px rgba(0,0,0,0.2);
             object-fit: cover;
-            box-shadow: 0 10px 30px rgba(12,26,64,0.15);
         }
 
-        .hero h2 { font-size: 1.9rem; color: var(--adp-blue); font-weight: 800; margin-bottom: 5px; letter-spacing: -0.5px; }
-        .hero p.title { font-size: 1.1rem; color: var(--text-dark); font-weight: 600; margin-bottom: 30px; }
+        .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 5px; color: var(--adp-blue); }
+        .hero .subtitle { font-size: 1.1rem; color: var(--adp-orange); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* GÜVEN VEREN VİZYON METNİ */
-        .vizyon-section {
-            background-color: var(--text-light);
+        /* İÇERİK KARTLARI */
+        .content-section {
+            max-width: 800px;
+            margin: -20px auto 40px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--white);
             padding: 30px;
             border-radius: 20px;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            border-left: 5px solid var(--adp-orange-fire);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--adp-blue);
+            margin-bottom: 20px;
         }
 
-        .vizyon-section p {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            text-align: left;
-            font-style: italic;
+        .card h3 { margin-bottom: 15px; color: var(--adp-blue); font-size: 1.3rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .card p { font-size: 1rem; line-height: 1.7; color: #444; text-align: justify; }
+
+        /* AKSİYON BUTONLARI (Mobile & Desktop) */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
         }
 
-        .vizyon-section p::before { content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #ddd; margin-right: 10px; font-size: 1.2rem; font-style: normal; }
-        .vizyon-section p::after { content: '\f10e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #ddd; margin-left: 10px; font-size: 1.2rem; font-style: normal; }
-
-        /* Harekete Geçirici Butonlar */
-        .action-section { padding: 0 20px; display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
         .btn {
-            display: flex; height: 60px; align-items: center; justify-content: center;
-            text-decoration: none; color: var(--text-light); border-radius: 15px;
-            font-size: 1.15rem; font-weight: 700; transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .btn i { margin-right: 15px; font-size: 1.4rem; }
-
-        .btn-call { background-color: var(--adp-blue); }
-        .btn-call:active { background-color: #081230; transform: scale(0.98); }
-
-        /* Sosyal Medya */
-        .social-section { text-align: center; padding: 40px 20px; background-color: var(--text-light); border-top: 1px solid #e1e8ed; }
-        .social-section h3 { font-size: 1rem; color: #7f8c8d; margin-bottom: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
-        .social-icons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .social-icon {
-            font-size: 1.6rem; color: var(--adp-blue); text-decoration: none;
-            width: 50px; height: 50px; border-radius: 50%;
-            border: 2px solid #e1e8ed; display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s;
-        }
-        .social-icon:active { background-color: #e6f0fa; border-color: var(--adp-blue); }
-
-        /* Sabit WhatsApp Butonu (Sticky) */
-        .whatsapp-fixed {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            left: 20px;
-            background-color: #25d366;
-            color: var(--text-light);
-            padding: 15px;
-            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 60px;
+            border-radius: 12px;
             text-decoration: none;
-            font-size: 1.1rem;
             font-weight: 700;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-            z-index: 9999;
-            transition: all 0.2s ease;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            color: var(--white);
         }
-        .whatsapp-fixed:active { transform: scale(0.98); background-color: #1ebe57; }
-        .whatsapp-fixed i { font-size: 1.6rem; margin-right: 12px; }
+
+        .btn-call { background: var(--adp-blue); }
+        .btn-wa { background: #25d366; }
+        .btn i { margin-right: 12px; font-size: 1.4rem; }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); opacity: 0.9; }
+
+        /* MASAÜSTÜ İÇİN ÖZEL AYARLAR */
+        @media (min-width: 768px) {
+            .hero { padding: 60px 20px; }
+            .profile-img { width: 220px; height: 220px; }
+            .hero h1 { font-size: 3rem; }
+            .btn-container { flex-direction: row; justify-content: center; }
+            .btn { min-width: 250px; }
+            .card { padding: 40px; }
+        }
+
+        /* SOSYAL MEDYA */
+        .social-footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+        .social-icons { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .social-icons a { 
+            color: var(--adp-blue); font-size: 1.8rem; transition: 0.3s; 
+        }
+        .social-icons a:hover { color: var(--adp-gold); transform: scale(1.2); }
 
         footer {
-            padding: 30px 20px 90px 20px; text-align: center; background-color: var(--adp-blue);
-            color: #bdc3c7; font-size: 0.85rem;
+            background: var(--adp-blue);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
         }
-        footer p { margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="logo.png" alt="ADP Amblem" class="header-logo">
+        <img src="logo.png" alt="Adalet ve Demokrasi Partisi" class="header-logo">
     </header>
 
-    <div class="hero">
-        <div class="profile-container">
-            <img src="profil.png" alt="Asım ONUK" class="profile-img">
+    <section class="hero">
+        <div class="profile-wrapper">
+            <img src="Asim-Onuk-Profil-min.jpg" alt="Asım ONUK" class="profile-img">
         </div>
-        <h2>Asım ONUK</h2>
-        <p class="title">Adalet ve Demokrasi Partisi Kocaeli İl Başkanı</p>
+        <h1>Asım ONUK</h1>
+        <p class="subtitle">Kocaeli İl Başkanı</p>
 
-        <div class="vizyon-section">
+        <div class="btn-container">
+            <a href="tel:+905XXXXXXXXX" class="btn btn-call"><i class="fa-solid fa-phone-volume"></i> Başkanla Görüş</a>
+            <a href="https://wa.me/905XXXXXXXXX" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp Hattı</a>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="card">
+            <h3>Halkın Sesi, Şehrin Gücü</h3>
             <p>
-                Kocaeli’nin dertlerini yerinde dinlemek, her bir vatandaşımızın sesine kulak vermek için yola çıktık. Adaletin ve demokrasinin gücüne inanarak, şehrimizin geleceğini birlikte inşa edeceğiz. Kapımız her dertliye, derman arayana açıktır.
+                Değerli Kocaelililer, biz bu yola "önce insan, önce adalet" diyerek çıktık. Sanayinin kalbi olan Kocaeli'mizi sadece fabrikalarla değil, huzurlu sokaklarla, adil paylaşımla ve her kapısı çalınan mutlu ailelerle anılır hale getireceğiz. Sorunları biliyoruz, çözümlerle geliyoruz.
             </p>
         </div>
-    </div>
 
-    <div class="action-section">
-        <a href="tel:+90XXXXXXXXXX" class="btn btn-call"><i class="fa-solid fa-phone"></i> Başkanla Görüş</a>
-    </div>
+        <div class="card" style="border-left-color: var(--adp-gold);">
+            <h3>Vizyonumuz</h3>
+            <p>
+                Gençlerimizin istihdamından, emeklilerimizin refahına kadar Kocaeli'nin her bir ferdi için projelerimiz hazır. Şeffaf, hesap verebilir ve halkla iç içe bir yönetim anlayışını Kocaeli İl Başkanlığı olarak tesis ediyoruz.
+            </p>
+        </div>
+    </section>
 
-    <div class="social-section">
-        <h3>BİZİ SOSYAL MEDYADA TAKİP EDİN</h3>
+    <div class="social-footer">
+        <p>Bizi Takip Edin</p>
         <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Adalet ve Demokrasi Partisi Kocaeli İl Başkanlığı</p>
-        <p>Halkın Sesi, Şehrin Gücü.</p>
+        <p>Güven, Adalet ve İstikrarın Adresi.</p>
     </footer>
-
-    <a href="https://wa.me/90XXXXXXXXXX?text=Merhaba%20Başkanım," class="whatsapp-fixed">
-        <i class="fa-brands fa-whatsapp"></i>
-        WhatsApp'tan Hemen Yazın
-    </a>
 
 </body>
 </html>
