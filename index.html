@@ -3,161 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Asım ONUK | Adalet ve Demokrasi Partisi Kocaeli İl Başkanı</title>
+    <title>Asım ONUK | ADP Kocaeli İl Başkanı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --adp-blue: #004a99; /* Kurumsal Mavi */
-            --adp-orange: #ff6600; /* Meşale Turuncusu */
-            --text-dark: #333333;
+            /* Logodaki Meşale ve Yazı Renkleri */
+            --adp-blue: #0c1a40; /* Koyu Lacivert */
+            --adp-orange-fire: #ff6600; /* Meşale Turuncusu */
+            --adp-orange-light: #ffaa00; /* Meşale Sarısı */
+            --text-dark: #2c3e50;
             --text-light: #ffffff;
-            --bg-gray: #f4f7f6;
+            --bg-gray: #f8fafc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
-        body { background-color: var(--bg-gray); color: var(--text-dark); -webkit-font-smoothing: antialiased; }
+        body { background-color: var(--bg-gray); color: var(--text-dark); -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-bottom: 70px; /* Sabit WhatsApp butonu için */ }
 
         /* Mobil Header (Kurumsal) */
         header {
             padding: 15px;
             background-color: var(--text-light);
-            border-bottom: 3px solid var(--adp-blue);
+            border-bottom: 4px solid var(--adp-blue);
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        .header-logo-container { display: flex; align-items: center; justify-content: center; gap: 10px; }
-        
-        /* Amblem (Daha Önce Bulduğumuz Kurumsal Logo) */
-        .logo-img { width: 35px; height: 35px; object-fit: contain; }
+        .header-logo { width: auto; height: 45px; object-fit: contain; }
 
-        .logo-section h1 { font-size: 1.1rem; color: var(--adp-blue); font-weight: 700; letter-spacing: -0.5px; margin-bottom: -3px; }
-        .logo-section span { font-size: 0.75rem; color: var(--adp-orange); display: block; }
-
-        /* Hero (Profil) Bölümü */
+        /* Hero (Profil ve Güven) Bölümü */
         .hero {
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
             background: linear-gradient(135deg, var(--text-light) 0%, #e6f0fa 100%);
+            border-radius: 0 0 30px 30px;
         }
 
-        .profile-frame {
+        .profile-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .hero img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 5px solid var(--text-light);
-            object-fit: cover;
-            box-shadow: 0 5px 20px rgba(0,74,153,0.2);
-        }
-
-        .hero h2 { font-size: 1.8rem; color: var(--adp-blue); margin-bottom: 5px; }
-        .hero p.title { font-size: 1rem; color: var(--text-dark); font-weight: 600; margin-bottom: 20px; }
-
-        /* GÜVEN VEREN CÜMLELER (Vizyon Bölümü) */
-        .vizyon-text {
-            color: var(--text-dark);
-            font-size: 0.9rem;
-            line-height: 1.6;
             margin-bottom: 25px;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 15px;
-            border-radius: 10px;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 6px solid var(--text-light);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(12,26,64,0.15);
+        }
+
+        .hero h2 { font-size: 1.9rem; color: var(--adp-blue); font-weight: 800; margin-bottom: 5px; letter-spacing: -0.5px; }
+        .hero p.title { font-size: 1.1rem; color: var(--text-dark); font-weight: 600; margin-bottom: 30px; }
+
+        /* GÜVEN VEREN VİZYON METNİ */
+        .vizyon-section {
+            background-color: var(--text-light);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--adp-orange-fire);
+        }
+
+        .vizyon-section p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: left;
             font-style: italic;
         }
 
-        /* Mobil Harekete Geçirici Butonlar */
-        .action-buttons { padding: 0 20px 20px 20px; display: grid; gap: 15px; }
+        .vizyon-section p::before { content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #ddd; margin-right: 10px; font-size: 1.2rem; font-style: normal; }
+        .vizyon-section p::after { content: '\f10e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #ddd; margin-left: 10px; font-size: 1.2rem; font-style: normal; }
 
+        /* Harekete Geçirici Butonlar */
+        .action-section { padding: 0 20px; display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
         .btn {
-            display: flex; height: 55px; align-items: center; justify-content: center;
-            text-decoration: none; color: var(--text-light); border-radius: 10px;
-            font-size: 1.1rem; font-weight: 600; transition: all 0.2s ease;
+            display: flex; height: 60px; align-items: center; justify-content: center;
+            text-decoration: none; color: var(--text-light); border-radius: 15px;
+            font-size: 1.15rem; font-weight: 700; transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        .btn i { margin-right: 15px; font-size: 1.4rem; }
 
-        .btn i { margin-right: 12px; font-size: 1.3rem; }
-
-        /* Kurumsal Renkli Butonlar */
         .btn-call { background-color: var(--adp-blue); }
-        .btn-call:active { background-color: #003366; transform: scale(0.98); }
-
-        .btn-wa { background-color: #25d366; }
-        .btn-wa:active { background-color: #1ebe57; transform: scale(0.98); }
+        .btn-call:active { background-color: #081230; transform: scale(0.98); }
 
         /* Sosyal Medya */
-        .social-section { text-align: center; padding: 30px 20px; background-color: var(--text-light); border-top: 1px solid #e1e8ed; }
-        .social-section h3 { font-size: 1rem; color: var(--text-dark); margin-bottom: 15px; }
-        
+        .social-section { text-align: center; padding: 40px 20px; background-color: var(--text-light); border-top: 1px solid #e1e8ed; }
+        .social-section h3 { font-size: 1rem; color: #7f8c8d; margin-bottom: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
         .social-icons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .social-icon {
-            font-size: 1.5rem; color: var(--adp-blue); text-decoration: none;
-            width: 45px; height: 45px; border-radius: 50%;
+            font-size: 1.6rem; color: var(--adp-blue); text-decoration: none;
+            width: 50px; height: 50px; border-radius: 50%;
             border: 2px solid #e1e8ed; display: flex; align-items: center; justify-content: center;
-            transition: 0.2s;
+            transition: all 0.2s;
         }
         .social-icon:active { background-color: #e6f0fa; border-color: var(--adp-blue); }
 
-        /* Alt Bilgi */
-        footer {
-            padding: 20px; text-align: center; background-color: var(--adp-blue);
-            color: var(--text-light); font-size: 0.8rem;
+        /* Sabit WhatsApp Butonu (Sticky) */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            left: 20px;
+            background-color: #25d366;
+            color: var(--text-light);
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 9999;
+            transition: all 0.2s ease;
         }
+        .whatsapp-fixed:active { transform: scale(0.98); background-color: #1ebe57; }
+        .whatsapp-fixed i { font-size: 1.6rem; margin-right: 12px; }
+
+        footer {
+            padding: 30px 20px 90px 20px; text-align: center; background-color: var(--adp-blue);
+            color: #bdc3c7; font-size: 0.85rem;
+        }
+        footer p { margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="header-logo-container">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/7564907504727373398_0" alt="ADP Amblem" class="logo-img">
-            <div class="logo-section">
-                <h1>ADALET VE DEMOKRASİ PARTİSİ</h1>
-                <span>KOCAELİ İL BAŞKANLIĞI</span>
-            </div>
-        </div>
+        <img src="logo.png" alt="ADP Amblem" class="header-logo">
     </header>
 
     <div class="hero">
-        <div class="profile-frame">
-            <img src="asimonuk.png" alt="Asım ONUK">
+        <div class="profile-container">
+            <img src="profil.png" alt="Asım ONUK" class="profile-img">
         </div>
         <h2>Asım ONUK</h2>
-        <p class="title">Kocaeli İl Başkanı, İş İnsanı</p>
+        <p class="title">Adalet ve Demokrasi Partisi Kocaeli İl Başkanı</p>
 
-        <p class="vizyon-text">
-            "Kocaeli'nin her sokağına adaleti ve demokrasiyi taşımak için buradayız. Şehrimizin geleceğini birlikte inşa etmek, dertleri yerinde dinlemek ve çözümler üretmek bizim önceliğimizdir. Kapımız her vatandaşa açıktır."
-        </p>
+        <div class="vizyon-section">
+            <p>
+                Kocaeli’nin dertlerini yerinde dinlemek, her bir vatandaşımızın sesine kulak vermek için yola çıktık. Adaletin ve demokrasinin gücüne inanarak, şehrimizin geleceğini birlikte inşa edeceğiz. Kapımız her dertliye, derman arayana açıktır.
+            </p>
+        </div>
     </div>
 
-    <div class="action-buttons">
-        <a href="tel:+90XXXXXXXXXX" class="btn btn-call"><i class="fa-solid fa-phone"></i> Hemen Ara</a>
-        
-        <a href="https://wa.me/90XXXXXXXXXX?text=Merhaba%20Asım%20Bey," class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Yaz</a>
+    <div class="action-section">
+        <a href="tel:+90XXXXXXXXXX" class="btn btn-call"><i class="fa-solid fa-phone"></i> Başkanla Görüş</a>
     </div>
 
     <div class="social-section">
-        <h3>Sosyal Medyada Takip Edin!</h3>
+        <h3>BİZİ SOSYAL MEDYADA TAKİP EDİN</h3>
         <div class="social-icons">
             <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
             <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Adalet ve Demokrasi Partisi Kocaeli İl Başkanlığı</p>
-        <p>Tüm Hakları Saklıdır.</p>
+        <p>Halkın Sesi, Şehrin Gücü.</p>
     </footer>
+
+    <a href="https://wa.me/90XXXXXXXXXX?text=Merhaba%20Başkanım," class="whatsapp-fixed">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp'tan Hemen Yazın
+    </a>
 
 </body>
 </html>
