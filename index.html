@@ -2,123 +2,49 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Asım ONUK | ADP Kocaeli İl Başkanı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --adp-blue: #0c1a40;
-            --adp-gold: #d4af37;
-            --adp-orange: #ff6600;
-            --white: #ffffff;
+        :root { --adp-blue: #0c1a40; --adp-orange: #ff6600; --bg-gray: #f8fafc; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background-color: var(--bg-gray); padding-bottom: 100px; text-align: center; }
+        header { background: #fff; padding: 15px; border-bottom: 4px solid var(--adp-blue); margin-bottom: 30px; }
+        .header-logo { max-height: 60px; width: auto; }
+        .hero { padding: 0 20px; }
+        .profile-img { 
+            width: 180px; height: 180px; border-radius: 50%; 
+            border: 5px solid #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            object-fit: cover; margin-bottom: 20px;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #f8f9fa; color: var(--adp-blue); }
-
-        header {
-            background: var(--white);
-            padding: 10px 0;
-            text-align: center;
-            border-bottom: 3px solid var(--adp-blue);
+        h2 { color: var(--adp-blue); font-size: 1.8rem; margin-bottom: 5px; }
+        .title { color: var(--adp-orange); font-weight: bold; margin-bottom: 25px; display: block; }
+        .card { background: #fff; margin: 20px; padding: 25px; border-radius: 15px; border-left: 5px solid var(--adp-blue); text-align: left; }
+        .btn-group { padding: 0 20px; display: grid; gap: 15px; }
+        .btn { 
+            text-decoration: none; color: #fff; padding: 18px; border-radius: 12px; 
+            font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
         }
-        .header-logo { 
-            height: 80px; /* Logo boyutunu belirginleştirdim */
-            max-width: 90%;
-            object-fit: contain;
-        }
-
-        .hero {
-            padding: 40px 20px;
-            text-align: center;
-            background: #ffffff url("https://www.transparenttextures.com/patterns/hexellence.png");
-        }
-
-        .profile-container {
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid var(--white);
-            box-shadow: 0 0 0 3px var(--adp-gold), 0 10px 20px rgba(0,0,0,0.1);
-            object-fit: cover;
-            display: block; /* Tarayıcının resmi blok olarak görmesini sağlar */
-        }
-
-        .hero h1 { font-size: 2.5rem; font-weight: 800; margin: 10px 0 5px; }
-        .hero .title { color: var(--adp-orange); font-weight: 700; text-transform: uppercase; margin-bottom: 25px; }
-
-        .btn-box { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
-        .btn {
-            padding: 15px 30px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: var(--white);
-            min-width: 220px;
-            transition: 0.3s;
-        }
-        .btn-dark { background: var(--adp-blue); }
+        .btn-blue { background: var(--adp-blue); }
         .btn-green { background: #25d366; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
-        .container { max-width: 800px; margin: auto; padding: 0 20px 50px; }
-        .card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            border-left: 6px solid var(--adp-blue);
-        }
-        .card-gold { border-left-color: var(--adp-gold); }
-        .card h3 { margin-bottom: 10px; }
-        .card p { line-height: 1.7; color: #444; text-align: justify; }
-
-        footer { background: var(--adp-blue); color: white; text-align: center; padding: 20px; font-size: 0.8rem; }
+        .btn i { margin-right: 10px; }
     </style>
 </head>
 <body>
-
     <header>
-        <img src="logo.png" alt="Adalet ve Demokrasi Partisi" class="header-logo">
+        <img src="logo.png" alt="ADP Logo" class="header-logo">
     </header>
-
-    <section class="hero">
-        <div class="profile-container">
-            <img src="Asim-Onuk-Profil-min.jpg" alt="Asım ONUK" class="profile-img">
-        </div>
-        <h1>Asım ONUK</h1>
-        <p class="title">KOCAELİ İL BAŞKANI</p>
-
-        <div class="btn-box">
-            <a href="tel:+905XXXXXXXXX" class="btn btn-dark"><i class="fa-solid fa-phone"></i> Başkanla Görüş</a>
-            <a href="https://wa.me/905XXXXXXXXX" class="btn btn-green"><i class="fa-brands fa-whatsapp"></i> WhatsApp Hattı</a>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="card">
-            <h3>Halkın Sesi, Şehrin Gücü</h3>
-            <p>Değerli Kocaelililer, biz bu yola "önce insan, önce adalet" diyerek çıktık. Sanayinin kalbi olan Kocaeli'mizi sadece fabrikalarla değil, huzurlu sokaklarla, adil paylaşımla ve her kapısı çalınan mutlu ailelerle anılır hale getireceğiz.</p>
-        </div>
-
-        <div class="card card-gold">
-            <h3>Vizyonumuz</h3>
-            <p>Gençlerimizin istihdamından, emeklilerimizin refahına kadar Kocaeli'nin her bir ferdi için projelerimiz hazır. Şeffaf ve halkla iç içe bir yönetim anlayışını tesis ediyoruz.</p>
-        </div>
+    <div class="hero">
+        <img src="Asim-Onuk-Profil-min.jpg" alt="Asım ONUK" class="profile-img">
+        <h2>Asım ONUK</h2>
+        <span class="title">KOCAELİ İL BAŞKANI</span>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Adalet ve Demokrasi Partisi Kocaeli İl Başkanlığı</p>
-    </footer>
-
+    <div class="card">
+        <p>Kocaeli’nin dertlerini yerinde dinlemek, her bir vatandaşımızın sesine kulak vermek için yola çıktık. Adaletin ve demokrasinin gücüyle şehrimizi birlikte inşa edeceğiz.</p>
+    </div>
+    <div class="btn-group">
+        <a href="tel:+905322831826" class="btn btn-blue"><i class="fa-solid fa-phone"></i> Başkanla Görüş</a>
+        <a href="https://wa.me/905322831826?text=Merhaba%20Başkanım," class="btn btn-green"><i class="fa-brands fa-whatsapp"></i> WhatsApp Hattı</a>
+    </div>
 </body>
 </html>
